@@ -262,7 +262,7 @@ $(function ($) {
 
     //google map
     var googleMapSelector = $('#map'),
-    myCenter = new google.maps.LatLng(23.741380, 90.382538);
+    myCenter = new google.maps.LatLng(6.545530, 3.367768);
 
     function initialize() {
         var mapProp = {
@@ -413,6 +413,41 @@ $(function ($) {
             gutter: 0
         });
     });
+
+    document.getElementById("submit").addEventListener("click", function () {
+       var fullname = document.getElementById("fullname").value;
+       var email = document.getElementById("email").value;
+       var message = document.getElementById("message").value;
+       var gend = document.getElementById("gender");
+       var gender = gend.options[gend.selectedIndex].value;
+       var phone = document.getElementById("phone").value;
+       var subject = "NEW USER FROM JUST WORSHIP";
+
+       if(!fullname || !email || !message || !gender || !phone) {
+           swal("Please Enter all required Information!", "", "error");
+       }
+       else {
+           var formatedMessage = fullname  + "\n" + email + "\n" + message + "\n" + gender  + "\n" + phone;
+       
+           $.ajax({
+               url: "https://formspree.io/oasisoffaith2018@gmail.com",
+               method: "POST",
+               data: {
+                   message: formatedMessage,
+                   subject: subject
+               },
+               dataType: "json"
+           });
+     
+           swal("Message successfully sent! Thanks for Reaching Us", "", "success");
+           document.getElementById("fullname").value = "";
+           document.getElementById("email").value = "";
+           document.getElementById("message").value = "";
+           document.getElementById("gender").value = "";
+           document.getElementById("phone").value = "";
+       }
+
+   });
 
 
 }(jQuery));
