@@ -1,14 +1,14 @@
 $(function ($) {
     "use strict";
 
-    $("nav").find("a").click(function(e) {
+    $("nav").find("a").click(function (e) {
         e.preventDefault();
         var section = $(this).attr("href");
         $("html, body").animate({
             scrollTop: $(section).offset().top
         }, 1000);
     });
-    
+
     var htmlBody = $('html, body');
 
     // this is for back to top
@@ -21,7 +21,7 @@ $(function ($) {
 
 
     var windo = $(window),
-    wWidth = windo.width();
+        wWidth = windo.width();
     //nave top js
     var navNavbar = $('nav.navbar');
     var navOffset = navNavbar.offset().top;
@@ -51,10 +51,10 @@ $(function ($) {
 
     // makes sure the whole site is loaded
     windo.on('load', function () {
-      $(".loader").delay(2000).fadeOut();
-      $("#preloader").delay(2000).fadeOut("slow");
-  });
-    
+        $(".loader").delay(2000).fadeOut();
+        $("#preloader").delay(2000).fadeOut("slow");
+    });
+
     //light box js
     $('.venobox').venobox({
         spinner: 'cube-grid',
@@ -120,24 +120,24 @@ $(function ($) {
         slidesToShow: 5,
         slidesToScroll: 1,
         responsive: [
-        {
-            breakpoint: 1024,
-            settings: {
-                slidesToShow: 3
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 481,
+                settings: {
+                    slidesToShow: 1
+                }
             }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 3
-            }
-        },
-        {
-            breakpoint: 481,
-            settings: {
-                slidesToShow: 1
-            }
-        }
         ]
     });
 
@@ -150,7 +150,7 @@ $(function ($) {
     $('.dj_slider_active').on('beforeChange', function () {
         $('.slick-slide').removeClass('prev next');
         setTimeout(function () {
-            var beforechange = $('.slick-current') ;
+            var beforechange = $('.slick-current');
             beforechange.prev().addClass('prev');
             beforechange.next().addClass('next');
         }, 100);
@@ -183,20 +183,20 @@ $(function ($) {
         slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
-        {
-            breakpoint: 992,
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2
+            {
+                breakpoint: 992,
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
         ]
     });
 
@@ -213,20 +213,20 @@ $(function ($) {
         slidesToShow: 2,
         slidesToScroll: 2,
         responsive: [
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
         ]
     });
 
@@ -244,25 +244,25 @@ $(function ($) {
         slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
-        {
-            breakpoint: 992,
-            settings: {
-                slidesToShow: 2
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
             }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1
-            }
-        }
         ]
     });
 
 
     //google map
     var googleMapSelector = $('#map'),
-    myCenter = new google.maps.LatLng(6.545530, 3.367768);
+        myCenter = new google.maps.LatLng(6.545530, 3.367768);
 
     function initialize() {
         var mapProp = {
@@ -271,129 +271,129 @@ $(function ($) {
             scrollwheel: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             styles: [
-            {
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#242f3e'
-                }]
-            },
-            {
-                elementType: 'labels.text.stroke',
-                stylers: [{
-                    color: '#242f3e'
-                }]
-            },
-            {
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#746855'
-                }]
-            },
-            {
-                featureType: 'administrative.locality',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#d59563'
-                }]
-            },
-            {
-                featureType: 'poi',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#d59563'
-                }]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#263c3f'
-                }]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#6b9a76'
-                }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#38414e'
-                }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry.stroke',
-                stylers: [{
-                    color: '#212a37'
-                }]
-            },
-            {
-                featureType: 'road',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#9ca5b3'
-                }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#746855'
-                }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{
-                    color: '#1f2835'
-                }]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#f3d19c'
-                }]
-            },
-            {
-                featureType: 'transit',
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#2f3948'
-                }]
-            },
-            {
-                featureType: 'transit.station',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#d59563'
-                }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{
-                    color: '#17263c'
-                }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.fill',
-                stylers: [{
-                    color: '#515c6d'
-                }]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.stroke',
-                stylers: [{
-                    color: '#17263c'
-                }]
-            }
+                {
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#242f3e'
+                    }]
+                },
+                {
+                    elementType: 'labels.text.stroke',
+                    stylers: [{
+                        color: '#242f3e'
+                    }]
+                },
+                {
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#746855'
+                    }]
+                },
+                {
+                    featureType: 'administrative.locality',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#d59563'
+                    }]
+                },
+                {
+                    featureType: 'poi',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#d59563'
+                    }]
+                },
+                {
+                    featureType: 'poi.park',
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#263c3f'
+                    }]
+                },
+                {
+                    featureType: 'poi.park',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#6b9a76'
+                    }]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#38414e'
+                    }]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'geometry.stroke',
+                    stylers: [{
+                        color: '#212a37'
+                    }]
+                },
+                {
+                    featureType: 'road',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#9ca5b3'
+                    }]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#746855'
+                    }]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'geometry.stroke',
+                    stylers: [{
+                        color: '#1f2835'
+                    }]
+                },
+                {
+                    featureType: 'road.highway',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#f3d19c'
+                    }]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#2f3948'
+                    }]
+                },
+                {
+                    featureType: 'transit.station',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#d59563'
+                    }]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [{
+                        color: '#17263c'
+                    }]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#515c6d'
+                    }]
+                },
+                {
+                    featureType: 'water',
+                    elementType: 'labels.text.stroke',
+                    stylers: [{
+                        color: '#17263c'
+                    }]
+                }
             ]
         };
         var map = new google.maps.Map(document.getElementById("map"), mapProp);
@@ -407,47 +407,68 @@ $(function ($) {
         google.maps.event.addDomListener(window, 'load', initialize);
     }
 
-    windo.on('load', function(){
+    windo.on('load', function () {
         $('.testbest').packery({
             itemSelector: '.gridtest',
             gutter: 0
         });
     });
 
+    var d = new Date();
+    var now = moment(d).format("YYYY-MM-DD HH:mm:ss");
+    var later = "2018-11-23 10:00:00";
+    var hour = parseInt(moment(later).diff(now, 'hours', true));
+    var minutes = parseInt(moment(later).diff(now, 'minutes', true));
+    var seconds = parseInt(moment(later).diff(now, 'seconds', true));
+    var day = parseInt(moment(later).diff(now, 'days', true));
+    var month = parseInt(moment(later).diff(now, 'months', true));
+    var weeks = parseInt(moment(later).diff(now, 'weeks', true));
+
+    document.getElementById('days').innerHTML = day;
+    document.getElementById('months').innerHTML = month;
+    document.getElementById('seconds').innerHTML = weeks;
+    document.getElementById('hours').innerHTML = hour;
+    // document.getElementById('weeks').innerHTML = weeks;
+
+
+
     document.getElementById("submit").addEventListener("click", function () {
-       var fullname = document.getElementById("fullname").value;
-       var email = document.getElementById("email").value;
-       var message = document.getElementById("message").value;
-       var gend = document.getElementById("gender");
-       var gender = gend.options[gend.selectedIndex].value;
-       var phone = document.getElementById("phone").value;
-       var subject = "NEW USER FROM JUST WORSHIP";
+        var fullname = document.getElementById("fullname").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+        var gend = document.getElementById("gender");
+        var gender = gend.options[gend.selectedIndex].value;
+        var catg = document.getElementById("category");
+        var category = catg.options[catg.selectedIndex].value;
+        var phone = document.getElementById("phone").value;
+        var subject = "NEW USER FROM JUST WORSHIP";
 
-       if(!fullname || !email || !message || !gender || !phone) {
-           swal("Please Enter all required Information!", "", "error");
-       }
-       else {
-           var formatedMessage = fullname  + "\n" + email + "\n" + message + "\n" + gender  + "\n" + phone;
-       
-           $.ajax({
-               url: "https://formspree.io/oasisoffaith2018@gmail.com",
-               method: "POST",
-               data: {
-                   message: formatedMessage,
-                   subject: subject
-               },
-               dataType: "json"
-           });
-     
-           swal("Message successfully sent! Thanks for Reaching Us", "", "success");
-           document.getElementById("fullname").value = "";
-           document.getElementById("email").value = "";
-           document.getElementById("message").value = "";
-           document.getElementById("gender").value = "";
-           document.getElementById("phone").value = "";
-       }
+        if (!fullname || !email || !message || !gender || !phone || !category) {
+            swal("Please Enter all required Information!", "", "error");
+        }
+        else {
+            var formatedMessage =`${fullname} \n ${email} \n ${message} \n ${gender} \n ${phone} \n ${category}`;
 
-   });
+            $.ajax({
+                url: "https://formspree.io/oasisoffaith2018@gmail.com",
+                method: "POST",
+                data: {
+                    message: formatedMessage,
+                    subject: subject
+                },
+                dataType: "json"
+            });
+
+            swal("Message successfully sent! Thanks for Reaching Us", "", "success");
+            document.getElementById("fullname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+            document.getElementById("gender").value = "";
+            document.getElementById("phone").value = "";
+            document.getElementById("category").value = "";
+        }
+
+    });
 
 
 }(jQuery));

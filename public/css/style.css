@@ -1762,3 +1762,7 @@ ul.slick-dots li.slick-active {
         overflow: hidden;
     }
 }
+
+.bold{
+    font-weight: bold;
+}
