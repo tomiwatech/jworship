@@ -310,6 +310,10 @@ ul.slick-dots li.slick-active {
     overflow: hidden;
 }
 
+.about_left_img{
+    margin-top:10px;
+}
+
 
 /* home gallery part css */
 
