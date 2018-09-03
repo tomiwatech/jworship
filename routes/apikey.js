@@ -16,9 +16,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/', function (req, res, next) {
 
-  // Jworship mail - oasisoffaith2018@gmail.com
-
-  const { fullname, email, message, gender, phone, category, subject } = req.body;
+  const { fullname, email, message, gender, phone, category } = req.body;
 
   const formatedMessage = `${fullname} \n ${email} \n ${message} \n ${gender} \n ${phone} \n ${category}`;
 
