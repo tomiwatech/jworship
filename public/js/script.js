@@ -447,15 +447,20 @@ $(function ($) {
             swal("Please Enter all required Information!", "", "error");
         }
         else {
-            var formatedMessage =`${fullname} \n ${email} \n ${message} \n ${gender} \n ${phone} \n ${category}`;
-
+            
+            const data = {
+                fullname,
+                email,
+                message,
+                gender,
+                phone,
+                category,
+                subject,
+            }
             $.ajax({
-                url: "https://formspree.io/oasisoffaith2018@gmail.com",
+                url: "/apikey",
                 method: "POST",
-                data: {
-                    message: formatedMessage,
-                    subject: subject
-                },
+                data: data,
                 dataType: "json"
             });
 

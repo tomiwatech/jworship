@@ -1,0 +1,47 @@
+const express = require('express');
+const router = express.Router();
+const sgMail = require('@sendgrid/mail');
+const config = require('../config');
+
+
+/* GET users listing. */
+router.get('/', function (req, res, next) {
+
+  return res.status(200).json({
+    message: 'Welcome to apikey',
+  });
+
+});
+
+
+router.post('/', function (req, res, next) {
+
+  // Jworship mail - oasisoffaith2018@gmail.com
+
+  const { fullname, email, message, gender, phone, category, subject } = req.body;
+
+  const formatedMessage = `${fullname} \n ${email} \n ${message} \n ${gender} \n ${phone} \n ${category}`;
+
+  console.log(formatedMessage);
+
+  sgMail.setApiKey(config.sendGridKey);
+
+  const mail = {
+    to: 'oasisoffaith2018@gmail.com',
+    from: 'justworship77@gmail.com',
+    subject: 'Just Worship - Home of Praise and Worship',
+    html: `<br> Hello, we just got a new user attending our event hurray!!!!!<br>
+          <br> Fullname : ${fullname}<br>
+          <br> Email : ${email}<br>
+          <br> Gender : ${gender}<br>
+          <br> Message : ${message}<br>
+          <br> phone : ${phone}<br>
+          <br> Category : ${category}<br>
+          `
+  };
+
+  sgMail.send(mail);
+
+});
+
+module.exports = router;
