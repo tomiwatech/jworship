@@ -22,23 +22,33 @@ router.post('/', function (req, res, next) {
 
   console.log(formatedMessage);
 
-  sgMail.setApiKey(config.sendGridKey);
+  if (config.sendGridKey == "") {
+    return res.status(400).json({
+      message: 'Please Supply Send Grid Key',
+    });
+  } else {
+    sgMail.setApiKey(config.sendGridKey);
 
-  const mail = {
-    to: 'oasisoffaith2018@gmail.com',
-    from: 'justworship77@gmail.com',
-    subject: 'Just Worship - Home of Praise and Worship',
-    html: `<br> Hello, we just got a new user attending our event hurray!!!!!<br>
-          <br> Fullname : ${fullname}<br>
-          <br> Email : ${email}<br>
-          <br> Gender : ${gender}<br>
-          <br> Message : ${message}<br>
-          <br> phone : ${phone}<br>
-          <br> Category : ${category}<br>
-          `
-  };
+    const mail = {
+      to: 'sannimichaelse@gmail.com',
+      from: 'justworship77@gmail.com',
+      subject: 'Just Worship - Home of Praise and Worship',
+      html: `<br> Hello, we just got a new user attending our event hurray!!!!!<br>
+            <br> Fullname : ${fullname}<br>
+            <br> Email : ${email}<br>
+            <br> Gender : ${gender}<br>
+            <br> Message : ${message}<br>
+            <br> phone : ${phone}<br>
+            <br> Category : ${category}<br>
+            `
+    };
 
-  sgMail.send(mail);
+    sgMail.send(mail);
+
+    return res.status(200).json({
+      message: 'Email Sent',
+    });
+  }
 
 });
 
