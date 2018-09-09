@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
 
   if (!process.env.SENDGRID_API_KEY) {
     return res.status(400).json({
-      message: 'Email Could not be Sent.',
+      message: 'Mail Could not be Sent.',
     });
   } else {
     sgMail.setApiKey(config.sendGridKey);
