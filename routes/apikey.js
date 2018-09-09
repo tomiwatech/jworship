@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
 
   console.log(formatedMessage);
 
-  if (config.sendGridKey == "") {
+  if (!process.env.SENDGRID_API_KEY) {
     return res.status(400).json({
       message: 'Email Could not be Sent.',
     });
@@ -30,7 +30,7 @@ router.post('/', function (req, res, next) {
     sgMail.setApiKey(config.sendGridKey);
 
     const mail = {
-      to: 'sannimichaelse@gmail.com',
+      to: 'justworshipint@gmail.com',
       from: 'justworship77@gmail.com',
       subject: 'Just Worship - Home of Praise and Worship',
       html: `<br> Hello, we just got a new user attending our event hurray!!!!!<br>
