@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
 
   if (config.sendGridKey == "") {
     return res.status(400).json({
-      message: 'Please Supply Send Grid Key',
+      message: 'Email Could not be Sent.',
     });
   } else {
     sgMail.setApiKey(config.sendGridKey);
@@ -52,4 +52,6 @@ router.post('/', function (req, res, next) {
 
 });
 
+
+// justworshipint@gmail.com
 module.exports = router;

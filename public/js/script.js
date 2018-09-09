@@ -447,7 +447,7 @@ $(function ($) {
             swal("Please Enter all required Information!", "", "error");
         }
         else {
-            
+
             const data = {
                 fullname,
                 email,
@@ -461,10 +461,18 @@ $(function ($) {
                 url: "/apikey",
                 method: "POST",
                 data: data,
-                dataType: "json"
+                dataType: "json",
+                success: function (dataa) {
+                    //alert(JSON.stringify(dataa));
+                    swal("Message successfully sent! Thanks for Reaching Us", "", "success");
+                },
+                error: function (err) {
+                    //alert(err.responseJSON.message)
+                    swal(err.responseJSON.message, "", "error");
+                }
             });
 
-            swal("Message successfully sent! Thanks for Reaching Us", "", "success");
+
             document.getElementById("fullname").value = "";
             document.getElementById("email").value = "";
             document.getElementById("message").value = "";
